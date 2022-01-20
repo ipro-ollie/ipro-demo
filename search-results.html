@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page exammple</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+        <div class="container">
+            <div class="pt-3 pb-3">
+                <form id="searchform" class="row gx-3 gy-2 align-items-center" method="get" action="/search-results">
+                    <div class="col-sm-3">
+                       
+                        <select class="form-select" name="location" id="location">
+                            <option selected="">Choose Location</option>
+                            <option value="10058">Property</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" autocomplete="off" placeholder="Dates" id="dates" class="form-control">
+                        <input type="hidden" id="date-start" name="checkin">
+                        <input type="hidden" id="date-end" name="checkout">
+                    </div>
+                    <div class="col-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="guests"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                Guests 2
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu p-3" aria-labelledby="guests">
+                                <div id="guest-form">
+                                    <label for="adults">Adults</label>
+                                    <div class="guest-quantity input-group mb-3">
+                                        <input type="button" value="-" class="quantity-minus input-group-text" field="adults">
+                                        <input type="text" name="adults" value="2" readonly max="20"
+                                            class="quantity form-control">
+                                        <input type="button" value="+" class="quantity-plus input-group-text" field="adults">
+                                    </div>
+                                    <label for="children">Children </label>
+                                    <div class="guest-quantity input-group mb-3">
+                                        <input type="button" value="-" class="quantity-minus input-group-text" field="children">
+                                        <input type="text" name="children" value="0" readonly max="20" class="quantity form-control">
+                                        <input type="button" value="+" class="quantity-plus input-group-text" field="children">
+                                    </div>
+                                    <label for="infants">Infants</label>
+                                    <div class="guest-quantity input-group mb-3">
+                                        <input type="button" value="-" class="quantity-minus input-group-text" field="infants">
+                                        <input type="text" name="infants" value="0" readonly max="20"
+                                            class="quantity form-control">
+                                        <input type="button" value="+" class="quantity-plus input-group-text" field="infants">
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                Filters
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu p-3" aria-labelledby="dropdownMenuButton2">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="attrs[]" type="checkbox" value="10067"
+                                        id="attrs_10067">
+                                    <label class="form-check-label" for="attrs_10067">
+                                        Sea View
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="attrs[]" type="checkbox" value="7347" id="attrs_7347">
+                                    <label class="form-check-label" for="attrs_7347">
+                                        BBQ
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="attrs[]" type="checkbox" value="10063" id="attrs_10063">
+                                    <label class="form-check-label" for="attrs_10063">
+                                        WiFi / Internet
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="attrs[]" type="checkbox" value="11373" id="attrs_11373">
+                                    <label class="form-check-label" for="attrs_11373">
+                                        Dogs Allowed
+                                    </label>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div id="wd_id"></div>
+        </div>
+
+    
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+            integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizer.min.js' id='iframe-resiser-js'></script>
+ 
+
+        
+        
+        
+        <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        
+        
+        <link rel="stylesheet" type="text/css" href="/css/hotel-datepicker.css">
+        <script src="/scripts/fecha.min.js"></script>
+        <script src="/scripts/hotel-datepicker.min.js"></script>
+        
+        
+        <script src="/scripts/search-form.js"></script>
+
+        <script src="/scripts/ipro-search-iframe.js"></script>
+
+
+        
+
+
+        <style>
+            iframe {
+                width: 100%
+            }
+        </style>
+</body>
+</html>
